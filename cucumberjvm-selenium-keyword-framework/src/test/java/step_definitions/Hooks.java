@@ -1,15 +1,14 @@
 package step_definitions;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -29,8 +28,14 @@ public class Hooks{
     	
     	System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "/src/test/resources/chromedriver.exe");
     	
+    	
     	//System.setProperty("webdriver.chrome.driver", absolutePath);
-    	driver = new ChromeDriver();
+    	 ChromeOptions options = new ChromeOptions();
+         options.addArguments("headless");
+         options.addArguments("window-size=1200x600");
+
+    	driver = new ChromeDriver(options);
+    	
     	driver.manage().deleteAllCookies();
     	driver.manage().window().maximize();
     }
