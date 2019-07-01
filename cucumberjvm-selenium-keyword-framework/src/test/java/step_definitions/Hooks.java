@@ -1,6 +1,9 @@
 package step_definitions;
 
+import java.io.File;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -21,10 +24,13 @@ public class Hooks{
      * Delete all cookies at the start of each scenario to avoid
      * shared state between tests
      */
-    public void openBrowser() throws MalformedURLException {
+    public void openBrowser() throws MalformedURLException, URISyntaxException {
     	System.out.println("Called openBrowser");
     	
-    	System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
+    	URL url = Hooks.class.getResource("/chromedriver.exe");
+    	File file = new File(url.toURI());
+    	String absolutePath = file.getAbsolutePath();
+    	System.setProperty("webdriver.chrome.driver", absolutePath);
     	driver = new ChromeDriver();
     	driver.manage().deleteAllCookies();
     	driver.manage().window().maximize();
