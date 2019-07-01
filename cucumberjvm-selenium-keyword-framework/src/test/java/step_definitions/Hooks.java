@@ -27,10 +27,9 @@ public class Hooks{
     public void openBrowser() throws MalformedURLException, URISyntaxException {
     	System.out.println("Called openBrowser");
     	
-    	URL url = Hooks.class.getResource("/chromedriver.exe");
-    	File file = new File(url.toURI());
-    	String absolutePath = file.getAbsolutePath();
-    	System.setProperty("webdriver.chrome.driver", absolutePath);
+    	System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "src/test/resources/chromedriver.exe");
+    	
+    	//System.setProperty("webdriver.chrome.driver", absolutePath);
     	driver = new ChromeDriver();
     	driver.manage().deleteAllCookies();
     	driver.manage().window().maximize();
