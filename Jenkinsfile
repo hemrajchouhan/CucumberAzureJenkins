@@ -13,7 +13,7 @@
 
         } finally {
             publishHTML (target: [
-                    reportDir: 'target/*',
+                    reportDir: 'target/cucumber-html-report',
                     reportFiles: 'index.html',
                     reportName: "Smoke tests report"
             ])
