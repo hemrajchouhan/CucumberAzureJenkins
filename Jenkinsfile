@@ -6,10 +6,18 @@
  
     
   }
-  stage('Build') {
-    
-        sh 'mvn clean install'
-   
+  stage('Smoke') {
+        try {
+            sh "mvn clean install"
+        } catch (err) {
+
+        } finally {
+            publishHTML (target: [
+                    reportDir: 'target/*',
+                    reportFiles: 'index.html',
+                    reportName: "Smoke tests report"
+            ])
+        }
     }
 }
 
