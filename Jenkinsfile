@@ -16,6 +16,6 @@ node {
         }
    }
    stage('Results') {
-      junit '**/target/cucumber-html-report/*.html'
+      junit '**/target/*.html'
    }
 }
