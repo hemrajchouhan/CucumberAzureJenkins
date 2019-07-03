@@ -3,17 +3,7 @@ node {
       git 'https://github.com/hemrajchouhan/CucumberAzureJenkins.git'
    }
    stage('Smoke') {
-        try {
-            sh "mvn install'"
-        } catch (err) {
-            
-        } finally {
-            publishHTML (target: [
-            reportDir: 'target',
-            reportFiles: 'index.html',
-            reportName: "Selenium tests report"
-            ])
-        }
+            sh "mvn clean install'"
    }
    stage('Results') {
       junit '**/target/*.html'
