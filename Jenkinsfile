@@ -7,3 +7,4 @@ dir("cucumberjvm-selenium-keywordframework") {
 sh "mvn clean install"
 }
 }
+}
