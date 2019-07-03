@@ -6,6 +6,6 @@ node {
             sh "mvn clean install'"
    }
    stage('Results') {
-      junit '**/target/*.html'
+     '**/target/*.html'
    }
 }
