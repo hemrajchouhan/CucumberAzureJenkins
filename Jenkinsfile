@@ -8,7 +8,11 @@
   }
   stage('Smoke') {
      
-            sh "mvn clean install"
+     withMaven(...) {
+ 
+      bat "mvn clean install"
+ 
+         } 
       
         }
     
