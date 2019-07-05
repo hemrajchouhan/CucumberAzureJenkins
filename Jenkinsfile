@@ -7,7 +7,7 @@ node('master'){
    //dir('C:\\Program Files (x86)\\Jenkins\\workspace\\pipeline_selenium1\\cucumberjvm-selenium-keyword-framework') {
    //sh 'mvn package'
      bat label: '', script: 'mvn clean install'
-  }   
+  //}   
   }
   stage('SELENIUM TEST'){
      echo  'SANITY Testing'
