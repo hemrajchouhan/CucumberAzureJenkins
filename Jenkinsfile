@@ -3,8 +3,8 @@ node('master'){
    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/hemrajchouhan/CucumberAzureJenkins.git']]])
    }
   stage('Compile-Package'){      
-    def MVNHOME=tool name: 'MAVEN_HOME', type: 'maven'
-    sh "${MVNHOME}/bin/mvn package"
+    tool name: 'MAVEN_HOME', type: 'maven'
+    sh 'mvn package'
   }
   stage('SELENIUM TEST'){
      echo  'SANITY Testing'
