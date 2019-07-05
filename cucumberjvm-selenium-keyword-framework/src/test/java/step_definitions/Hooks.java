@@ -25,19 +25,13 @@ public class Hooks{
      */
     public void openBrowser() throws MalformedURLException, URISyntaxException {
     	System.out.println("Called openBrowser");
+		ChromeOptions chromeOptions= new ChromeOptions();
+		chromeOptions.setBinary("C:\\Users\\HChouhan\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
+		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "/resources/driver/chromedriver.exe");
+		driver = new ChromeDriver(chromeOptions);
+		driver.manage().deleteAllCookies();
+		driver.manage().window().maximize();
     	
-    	System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "/resources/driver/chromedriver.exe");
-    	
-    	
-    	//System.setProperty("webdriver.chrome.driver", absolutePath);
-    	 ChromeOptions options = new ChromeOptions();
-         options.addArguments("headless");
-         options.addArguments("window-size=1200x600");
-
-    	driver = new ChromeDriver(options);
-    	
-    	driver.manage().deleteAllCookies();
-    	driver.manage().window().maximize();
     }
 
      
