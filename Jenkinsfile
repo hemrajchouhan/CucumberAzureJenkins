@@ -11,8 +11,8 @@ node('master'){
      bat label: '', script: 'mvn clean install'
   }   
   }
-  stage('SELENIUM TEST'){
-     echo  'SANITY Testing'
+  stage('SELENIUM CUCUMBER TEST REPORT'){
+    cucumber failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
   }
   stage('DEPLOY'){
      echo  'Unit Testing'
