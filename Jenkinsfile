@@ -4,8 +4,9 @@ node('master'){
    }
   stage('Compile-Package'){      
    tool name: 'MAVEN_HOME', type: 'maven'
-   dir('C:\\Program Files (x86)\\Jenkins\\workspace\\pipeline_selenium1\\cucumberjvm-selenium-keyword-framework') {
-    sh 'mvn package'
+   //dir('C:\\Program Files (x86)\\Jenkins\\workspace\\pipeline_selenium1\\cucumberjvm-selenium-keyword-framework') {
+   //sh 'mvn package'
+     bat label: '', script: 'mvn clean install'
   }   
   }
   stage('SELENIUM TEST'){
